@@ -47,6 +47,7 @@
   </ItemGroup>
   <ItemGroup>
      <Compile Include="Assets\RobotControllerSript.cs" />
+     <Compile Include="Assets\SpikeDeath.cs" />
      <Compile Include="Assets\collision.cs" />
      <Compile Include="Assets\gravityShift.cs" />
      <Compile Include="Assets\trigger.cs" />

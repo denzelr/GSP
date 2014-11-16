@@ -107,4 +107,12 @@ public class RobotControllerSript : MonoBehaviour {
 		theScale.x *= -1;
 		transform.localScale = theScale;
 	}
+
+	void OnCollisionEnter2D(Collision2D hit) {
+		if (hit.gameObject.tag == "Death") {
+			Destroy(gameObject);
+			Application.LoadLevel (0);
+		}
+	}
+	
 }

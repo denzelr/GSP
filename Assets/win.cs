@@ -14,8 +14,10 @@ public class win : MonoBehaviour {
 	}
 	void OnCollisionEnter2D(Collision2D hit) {
 		if (hit.gameObject.tag == "Player") {
-			Time.timeScale = 0;
 			Debug.Log ("You beat the test level");
+			Physics2D.gravity = new Vector2(0f,-9.81f);
+			Application.LoadLevel (0);
+
 		}
 	}
 }
