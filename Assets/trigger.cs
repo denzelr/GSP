@@ -8,6 +8,8 @@ public class trigger : MonoBehaviour {
 	Animator anim;
 	public GameObject movingWall; //object to be animated
 	public string doorOpen;
+	public GameObject success;
+	bool isOpen = false;
 
 	void Start () {
 	}
@@ -18,7 +20,9 @@ public class trigger : MonoBehaviour {
 	}
 
 	void OnCollisionEnter2D(Collision2D hit) {
-		if (hit.gameObject.tag == "Finish") {
+		if (hit.gameObject.tag == "Finish" && isOpen == false) {
+			success.light.color = Color.green;
+			isOpen = true;
 			movingWall.animation.Play(doorOpen);
 			}
 	}

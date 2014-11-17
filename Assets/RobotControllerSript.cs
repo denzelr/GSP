@@ -18,6 +18,18 @@ public class RobotControllerSript : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 		anim = GetComponent<Animator> ();
+		if (Application.loadedLevel == 0 || Application.loadedLevel == 1) {
+			Physics2D.gravity = new Vector2(0f,-9.81f);
+			Vector3 targetdown = new Vector3(0, 1, 0);
+			transform.up = Vector3.Slerp(transform.up, targetdown, Time.deltaTime * damping);
+			jumpdir = 1;;
+			}
+		if (Application.loadedLevel == 2 || Application.loadedLevel == 3) {
+			Physics2D.gravity = new Vector2(-9.81f,0f);
+			Vector3 targetleft = new Vector3(1, 0, 0);
+			transform.up = Vector3.Slerp(transform.up, targetleft, Time.deltaTime * damping);
+			jumpdir = 2;;
+			}
 	}
 	
 	// Update is called once per frame
@@ -111,7 +123,11 @@ public class RobotControllerSript : MonoBehaviour {
 	void OnCollisionEnter2D(Collision2D hit) {
 		if (hit.gameObject.tag == "Death") {
 			Destroy(gameObject);
-			Application.LoadLevel (0);
+			Application.LoadLevel (Application.loadedLevel);
+		}
+		if (hit.gameObject.tag == "Respawn") {
+			Destroy(gameObject);
+			Application.LoadLevel (Application.loadedLevel);
 		}
 	}
 	

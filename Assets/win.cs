@@ -16,7 +16,7 @@ public class win : MonoBehaviour {
 		if (hit.gameObject.tag == "Player") {
 			Debug.Log ("You beat the test level");
 			Physics2D.gravity = new Vector2(0f,-9.81f);
-			Application.LoadLevel (0);
+			Application.LoadLevel (Application.loadedLevel + 1);
 
 		}
 	}
