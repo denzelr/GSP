@@ -18,20 +18,30 @@ public class RobotControllerSript : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 		anim = GetComponent<Animator> ();
-		if (Application.loadedLevel == 0 || Application.loadedLevel == 1) {
+		if (Application.loadedLevel == 0 || Application.loadedLevel == 1 || Application.loadedLevel == 2 || Application.loadedLevel == 3) {
 			Physics2D.gravity = new Vector2(0f,-9.81f);
 			Vector3 targetdown = new Vector3(0, 1, 0);
 			transform.up = Vector3.Slerp(transform.up, targetdown, Time.deltaTime * damping);
-			jumpdir = 1;;
+			jumpdir = 1;
 			}
-		if (Application.loadedLevel == 2 || Application.loadedLevel == 3) {
+		if (Application.loadedLevel == 4 || Application.loadedLevel == 5) {
 			Physics2D.gravity = new Vector2(-9.81f,0f);
 			Vector3 targetleft = new Vector3(1, 0, 0);
 			transform.up = Vector3.Slerp(transform.up, targetleft, Time.deltaTime * damping);
-			jumpdir = 2;;
+			jumpdir = 2;
 			}
 	}
-	
+
+	void OnGUI () {
+		GUI.Box(new Rect(10,10,200,50), "");
+		if(GUI.Button(new Rect(20,25,80,20), "Main Menu")) {
+			Application.LoadLevel(0);
+		}
+		if(GUI.Button(new Rect(110,25,80,20), "Restart")) {
+			Application.LoadLevel(Application.loadedLevel);
+		}
+	}
+
 	// Update is called once per frame
 	void FixedUpdate () {
 		grounded = Physics2D.OverlapCircle (groundCheck.position, groundRadius, whatIsGround);
