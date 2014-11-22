@@ -13,7 +13,10 @@ public class RobotControllerSript : MonoBehaviour {
 	public float jumpForce = 700f;
 	float damping = 64;
 	public int jumpdir;
-
+	private Vector2 crushup = new Vector2(0,1);
+	private Vector2 crushdown = new Vector2(0,-1);
+	private Vector2 crushleft = new Vector2(-1,0);
+	private Vector2 crushright = new Vector2(1,0);
 
 	// Use this for initialization
 	void Start () {
@@ -73,22 +76,7 @@ public class RobotControllerSript : MonoBehaviour {
 	}
 
 	void Update(){
-		/*if(grounded && Input.GetKeyDown(KeyCode.Space) && jumpdir == 0){
-			anim.SetBool("Ground", false);
-			rigidbody2D.AddForce(new Vector2(0, jumpForce));
-		}
-		if(grounded && Input.GetKeyDown(KeyCode.Space) && jumpdir == 1){
-			anim.SetBool("Ground", false);
-			rigidbody2D.AddForce(new Vector2(0, -jumpForce));
-		}
-		if(grounded && Input.GetKeyDown(KeyCode.Space) && jumpdir == 2){
-			anim.SetBool("Ground", false);
-			rigidbody2D.AddForce(new Vector2(jumpForce, 0));
-		}
-		if(grounded && Input.GetKeyDown(KeyCode.Space) && jumpdir == 3){
-			anim.SetBool("Ground", false);
-			rigidbody2D.AddForce(new Vector2(-jumpForce, 0));
-		}*/
+		
 		if (Input.GetKeyDown(KeyCode.I)) {
 			if (grounded == true){
 			Physics2D.gravity = new Vector2(0f,9.81f);
@@ -139,6 +127,25 @@ public class RobotControllerSript : MonoBehaviour {
 			Destroy(gameObject);
 			Application.LoadLevel (Application.loadedLevel);
 		}
+	}
+
+	void OnCollisionStay2D(Collision2D hit) {
+		if (hit.gameObject.tag == "Finish" && jumpdir == 0 && hit.contacts[0].normal == crushup && grounded == true) {
+			Destroy(gameObject);
+			Application.LoadLevel (Application.loadedLevel);
+		}  
+		if (hit.gameObject.tag == "Finish" && jumpdir == 1 && hit.contacts[0].normal == crushdown && grounded == true) {
+			Destroy(gameObject);
+			Application.LoadLevel (Application.loadedLevel);
+		} 
+		if (hit.gameObject.tag == "Finish" && jumpdir == 2 && hit.contacts[0].normal == crushleft && grounded == true) {
+			Destroy(gameObject);
+			Application.LoadLevel (Application.loadedLevel);
+		} 
+		if (hit.gameObject.tag == "Finish" && jumpdir == 3 && hit.contacts[0].normal == crushright && grounded == true) {
+			Destroy(gameObject);
+			Application.LoadLevel (Application.loadedLevel);
+		} 
 	}
 	
 }
