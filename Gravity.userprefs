@@ -1,14 +1,6 @@
 ﻿<Properties>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="MonoDevelop.Default" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/RobotControllerSript.cs">
-    <Files>
-      <File FileName="Assets/box.cs" Line="23" Column="1" />
-      <File FileName="Assets/win.cs" Line="1" Column="1" />
-      <File FileName="Assets/trigger.cs" Line="1" Column="1" />
-      <File FileName="../Unity Assignments/Assets/GUITest.cs" Line="1" Column="1" />
-      <File FileName="Assets/RobotControllerSript.cs" Line="63" Column="16" />
-    </Files>
-  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.Workbench />
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore />
   </MonoDevelop.Ide.DebuggingService.Breakpoints>

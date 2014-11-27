@@ -46,13 +46,17 @@
 	</Reference>
   </ItemGroup>
   <ItemGroup>
-     <Compile Include="Assets\RobotControllerSript.cs" />
-     <Compile Include="Assets\SpikeDeath.cs" />
-     <Compile Include="Assets\box.cs" />
-     <Compile Include="Assets\collision.cs" />
-     <Compile Include="Assets\gravityShift.cs" />
-     <Compile Include="Assets\trigger.cs" />
-     <Compile Include="Assets\win.cs" />
+     <Compile Include="Assets\Scripts\LevelSelect.cs" />
+     <Compile Include="Assets\Scripts\RobotControllerSript.cs" />
+     <Compile Include="Assets\Scripts\RobotLEFT.cs" />
+     <Compile Include="Assets\Scripts\SpikeDeath.cs" />
+     <Compile Include="Assets\Scripts\UIManager.cs" />
+     <Compile Include="Assets\Scripts\box.cs" />
+     <Compile Include="Assets\Scripts\buttonPlay.cs" />
+     <Compile Include="Assets\Scripts\collision.cs" />
+     <Compile Include="Assets\Scripts\gravityShift.cs" />
+     <Compile Include="Assets\Scripts\trigger.cs" />
+     <Compile Include="Assets\Scripts\win.cs" />
  <Reference Include="UnityEngine.UI">
  <HintPath>/Applications/Unity/Unity.app/Contents/UnityExtensions/Unity/GUISystem/4.6.0/UnityEngine.UI.dll</HintPath>
  </Reference>
