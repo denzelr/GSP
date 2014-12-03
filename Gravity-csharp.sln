@@ -5,6 +5,8 @@ Project("{8A88C39C-EF66-8FB5-5F18-8AF09665BD40}") = "Gravity", "Assembly-CSharp-
 EndProject
 Project("{8A88C39C-EF66-8FB5-5F18-8AF09665BD40}") = "Gravity", "Assembly-CSharp-vs.csproj", "{BAC10644-1E62-0C3F-845F-C609C80C4B98}"
 EndProject
+Project("{8A88C39C-EF66-8FB5-5F18-8AF09665BD40}") = "Gravity", "Assembly-CSharp-Editor-vs.csproj", "{A12B2238-4983-5260-B397-7F0772DE84ED}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -19,11 +21,15 @@ Global
 		{BAC10644-1E62-0C3F-845F-C609C80C4B98}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{BAC10644-1E62-0C3F-845F-C609C80C4B98}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{BAC10644-1E62-0C3F-845F-C609C80C4B98}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A12B2238-4983-5260-B397-7F0772DE84ED}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A12B2238-4983-5260-B397-7F0772DE84ED}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A12B2238-4983-5260-B397-7F0772DE84ED}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A12B2238-4983-5260-B397-7F0772DE84ED}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
-																																																				GlobalSection(MonoDevelopProperties) = preSolution
+																																																										GlobalSection(MonoDevelopProperties) = preSolution
 		StartupItem = Assembly-CSharp.csproj
 		Policies = $0
 		$0.TextStylePolicy = $1

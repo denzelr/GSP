@@ -18,6 +18,7 @@ public class RobotLEFT : MonoBehaviour {
 	private Vector2 crushleft = new Vector2(-1,0);
 	private Vector2 crushright = new Vector2(1,0);
 	public AudioClip crush;
+	private bool dead = false;
 	
 	// Use this for initialization
 	void Start () {
@@ -50,66 +51,68 @@ public class RobotLEFT : MonoBehaviour {
 	
 	// Update is called once per frame
 	void FixedUpdate () {
-		grounded = Physics2D.OverlapCircle (groundCheck.position, groundRadius, whatIsGround);
-		anim.SetBool ("Ground", grounded);
-		
-		//anim.SetFloat ("Vspeed", rigidbody2D.velocity.y);
-		//anim.SetFloat ("Hspeed", rigidbody2D.velocity.x);
-		
-		
-		float move = Input.GetAxis("Horizontal");
-		float movev = Input.GetAxis("Vertical");
-		
-		if (jumpdir == 0 || jumpdir == 1){
-			anim.SetFloat ("Speed", Mathf.Abs(move));
-			anim.SetFloat ("Vspeed", Mathf.Abs(0));
-			rigidbody2D.velocity = new Vector2 (move * maxSpeed, rigidbody2D.velocity.y);
+		if (!dead) {
+			grounded = Physics2D.OverlapCircle (groundCheck.position, groundRadius, whatIsGround);
+			anim.SetBool ("Ground", grounded);
+			
+			//anim.SetFloat ("Vspeed", rigidbody2D.velocity.y);
+			//anim.SetFloat ("Hspeed", rigidbody2D.velocity.x);
+			
+			
+			float move = Input.GetAxis ("Horizontal");
+			float movev = Input.GetAxis ("Vertical");
+			
+			if (jumpdir == 0 || jumpdir == 1) {
+				anim.SetFloat ("Speed", Mathf.Abs (move));
+				anim.SetFloat ("Vspeed", Mathf.Abs (0));
+				rigidbody2D.velocity = new Vector2 (move * maxSpeed, rigidbody2D.velocity.y);
+			} else if (jumpdir == 2 || jumpdir == 3) {
+				anim.SetFloat ("Speed", Mathf.Abs (0));
+				anim.SetFloat ("Vspeed", Mathf.Abs (movev));
+				rigidbody2D.velocity = new Vector2 (rigidbody2D.velocity.x, movev * maxSpeed);
+			}
+			
+			if (move > 0 && !facingRight || (jumpdir == 2 && movev > 0 && facingRight) || (jumpdir == 3 && movev > 0 && !facingRight))
+				Flip ();
+			else if (move < 0 && facingRight || (jumpdir == 2 && movev < 0 && !facingRight) || (jumpdir == 3 && movev < 0 && facingRight))
+				Flip ();
+			
 		}
-		else if (jumpdir == 2 || jumpdir == 3) {
-			anim.SetFloat ("Speed", Mathf.Abs(0));
-			anim.SetFloat ("Vspeed", Mathf.Abs(movev));
-			rigidbody2D.velocity = new Vector2 (rigidbody2D.velocity.x, movev * maxSpeed);
-		}
-		
-		if (move > 0 && !facingRight || (jumpdir == 2 && movev > 0 && facingRight) || (jumpdir == 3 && movev > 0 && !facingRight))
-			Flip ();
-		else if (move < 0 && facingRight || (jumpdir == 2 && movev < 0 && !facingRight) || (jumpdir == 3 && movev < 0 && facingRight))
-			Flip ();
-		
 	}
 	
 	void Update(){
-		
-		if (Input.GetKeyDown(KeyCode.I)) {
-			if (grounded == true){
-				Physics2D.gravity = new Vector2(0f,9.81f);
-				Vector3 targetUp = new Vector3(0, -1, 0);
-				transform.up = Vector3.Slerp(transform.up, targetUp, Time.deltaTime * damping);
-				jumpdir = 0;
+		if (!dead) {
+			if (Input.GetKeyDown (KeyCode.I)) {
+				if (grounded == true) {
+					Physics2D.gravity = new Vector2 (0f, 9.81f);
+					Vector3 targetUp = new Vector3 (0, -1, 0);
+					transform.up = Vector3.Slerp (transform.up, targetUp, Time.deltaTime * damping);
+					jumpdir = 0;
+				}
 			}
-		}
-		if (Input.GetKeyDown(KeyCode.K)) {
-			if (grounded == true){
-				Physics2D.gravity = new Vector2(0f,-9.81f);
-				Vector3 targetdown = new Vector3(0, 1, 0);
-				transform.up = Vector3.Slerp(transform.up, targetdown, Time.deltaTime * damping);
-				jumpdir = 1;
+			if (Input.GetKeyDown (KeyCode.K)) {
+				if (grounded == true) {
+					Physics2D.gravity = new Vector2 (0f, -9.81f);
+					Vector3 targetdown = new Vector3 (0, 1, 0);
+					transform.up = Vector3.Slerp (transform.up, targetdown, Time.deltaTime * damping);
+					jumpdir = 1;
+				}
 			}
-		}
-		if (Input.GetKeyDown(KeyCode.J)) {
-			if (grounded == true){
-				Physics2D.gravity = new Vector2(-9.81f,0f);
-				Vector3 targetleft = new Vector3(1, 0, 0);
-				transform.up = Vector3.Slerp(transform.up, targetleft, Time.deltaTime * damping);
-				jumpdir = 2;
+			if (Input.GetKeyDown (KeyCode.J)) {
+				if (grounded == true) {
+					Physics2D.gravity = new Vector2 (-9.81f, 0f);
+					Vector3 targetleft = new Vector3 (1, 0, 0);
+					transform.up = Vector3.Slerp (transform.up, targetleft, Time.deltaTime * damping);
+					jumpdir = 2;
+				}
 			}
-		}
-		if (Input.GetKeyDown(KeyCode.L)) {
-			if (grounded == true){
-				Physics2D.gravity = new Vector2(9.81f,0f);
-				Vector3 targetright = new Vector3(-1, 0, 0);
-				transform.up = Vector3.Slerp(transform.up, targetright, Time.deltaTime * damping);
-				jumpdir = 3;
+			if (Input.GetKeyDown (KeyCode.L)) {
+				if (grounded == true) {
+					Physics2D.gravity = new Vector2 (9.81f, 0f);
+					Vector3 targetright = new Vector3 (-1, 0, 0);
+					transform.up = Vector3.Slerp (transform.up, targetright, Time.deltaTime * damping);
+					jumpdir = 3;
+				}
 			}
 		}
 	}
@@ -122,36 +125,53 @@ public class RobotLEFT : MonoBehaviour {
 	}
 	
 	void OnCollisionEnter2D(Collision2D hit) {
-		if (hit.gameObject.tag == "Death") {
-			Destroy(gameObject);
-			Application.LoadLevel (Application.loadedLevel);
+		if (hit.gameObject.tag == "Death" || hit.gameObject.tag == "space") {
+			dead = true;
+			anim.SetBool ("Dead", true);
+			StartCoroutine(waitForDeath());
 		}
 		if (hit.gameObject.tag == "Respawn") {
-			Destroy(gameObject);
-			Application.LoadLevel (Application.loadedLevel);
+			dead = true;
+			anim.SetBool ("Dead", true);
+			StartCoroutine(waitForDeath());
 		}
 	}
 	
 	void OnCollisionStay2D(Collision2D hit) {
 		if (hit.gameObject.tag == "Finish" && jumpdir == 0 && hit.contacts[0].normal == crushup && grounded == true) {
 			audio.PlayOneShot(crush);
-			Destroy(gameObject);
-			Application.LoadLevel (Application.loadedLevel);
+			dead = true;
+			anim.SetBool ("Dead", true);
+			Destroy (gameObject.GetComponent<BoxCollider2D>()); 
+			StartCoroutine(waitForDeath());
 		}  
 		if (hit.gameObject.tag == "Finish" && jumpdir == 1 && hit.contacts[0].normal == crushdown && grounded == true) {
 			audio.PlayOneShot(crush);
-			Destroy(gameObject);
-			Application.LoadLevel (Application.loadedLevel);
+			dead = true;
+			anim.SetBool ("Dead", true);
+			Destroy (gameObject.GetComponent<BoxCollider2D>()); 
+			StartCoroutine(waitForDeath());
 		} 
 		if (hit.gameObject.tag == "Finish" && jumpdir == 2 && hit.contacts[0].normal == crushleft && grounded == true) {
 			audio.PlayOneShot(crush);
-			Destroy(gameObject);
-			Application.LoadLevel (Application.loadedLevel);
+			dead = true;
+			anim.SetBool ("Dead", true);
+			Destroy (gameObject.GetComponent<BoxCollider2D>()); 
+			StartCoroutine(waitForDeath());
 		} 
 		if (hit.gameObject.tag == "Finish" && jumpdir == 3 && hit.contacts[0].normal == crushright && grounded == true) {
 			audio.PlayOneShot(crush);
-			Destroy(gameObject);
-			Application.LoadLevel (Application.loadedLevel);
+			dead = true;
+			anim.SetBool ("Dead", true);
+			Destroy (gameObject.GetComponent<BoxCollider2D>()); 
+			StartCoroutine(waitForDeath());
 		} 
 	}
+	
+	IEnumerator waitForDeath() {
+		yield return new WaitForSeconds(1);
+		Application.LoadLevel (Application.loadedLevel);
+	}
+	
 }
+

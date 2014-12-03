@@ -3,6 +3,8 @@ using System.Collections;
 
 public class box : MonoBehaviour {
 
+	private bool finish = false;
+
 	// Use this for initialization
 	void Start () {
 	
@@ -17,6 +19,15 @@ public class box : MonoBehaviour {
 		if (hit.gameObject.tag == "Finish") {
 			Destroy (gameObject);
 			
+		}
+		if (hit.gameObject.tag == "trigger") {
+			finish = true;
+		}
+		if (hit.gameObject.tag == "space") {
+			Destroy (gameObject);
+			if (finish == false) {
+				Application.LoadLevel(Application.loadedLevel);
+			}
 		}
 	}
 }

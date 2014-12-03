@@ -49,6 +49,7 @@
      <Compile Include="Assets\Scripts\LevelSelect.cs" />
      <Compile Include="Assets\Scripts\RobotControllerSript.cs" />
      <Compile Include="Assets\Scripts\RobotLEFT.cs" />
+     <Compile Include="Assets\Scripts\RobotUP.cs" />
      <Compile Include="Assets\Scripts\SpikeDeath.cs" />
      <Compile Include="Assets\Scripts\UIManager.cs" />
      <Compile Include="Assets\Scripts\box.cs" />
@@ -57,6 +58,14 @@
      <Compile Include="Assets\Scripts\gravityShift.cs" />
      <Compile Include="Assets\Scripts\trigger.cs" />
      <Compile Include="Assets\Scripts\win.cs" />
+     <Compile Include="Assets\iTweenEditor\Examples\StartAndStopTween.cs" />
+     <Compile Include="Assets\iTweenEditor\Helper Classes\EventParamMappings.cs" />
+     <Compile Include="Assets\iTweenEditor\Helper Classes\Vector3OrTransform.cs" />
+     <Compile Include="Assets\iTweenEditor\Helper Classes\Vector3OrTransformArray.cs" />
+     <Compile Include="Assets\iTweenEditor\iTween.cs" />
+     <Compile Include="Assets\iTweenEditor\iTweenEvent.cs" />
+     <Compile Include="Assets\iTweenEditor\iTweenPath.cs" />
+     <None Include="Assets\iTweenEditor\README.txt" />
  <Reference Include="Assembly-UnityScript-firstpass">
  <HintPath>/Users/ryandenzel/Gravity/Library/ScriptAssemblies/Assembly-UnityScript-firstpass.dll</HintPath>
  </Reference>

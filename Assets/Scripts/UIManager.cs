@@ -10,7 +10,7 @@ public class UIManager : MonoBehaviour {
 		Application.LoadLevel (1);
 	}
 	public void Credits() {
-		Application.LoadLevel (13);
+		Application.LoadLevel (20);
 	}
 	public void TitleMenu() {
 		Application.LoadLevel (0);

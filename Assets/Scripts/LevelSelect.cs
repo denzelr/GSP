@@ -49,6 +49,7 @@ public class LevelSelect : MonoBehaviour {
 		lock18 = GameObject.Find("Lock18");
 		lock19 = GameObject.Find("Lock19");
 		lock20 = GameObject.Find("Lock20");
+
 		if(PlayerPrefs.HasKey("Level2")){
 			Destroy(lock2);
 		}
