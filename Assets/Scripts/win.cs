@@ -1,14 +1,15 @@
 ﻿using UnityEngine;
 using System.Collections;
 
+/** @file win.cs */ 
+
 public class win : MonoBehaviour {
 
 
-	//static int unlock;
-	// Use this for initialization
-	//void Awake () {
-	//	unlock = PlayerPrefs.GetInt("Unlock",0);
-	//}
+	/// \brief
+	/// win: Detects if player collides with collider at the end of the level, then passes a key to
+	/// PlayerPrefs and loads next level.
+	/// 
 	
 	// Update is called once per frame
 	void Update () {

@@ -3,7 +3,13 @@ using System.Collections;
 
 public class box : MonoBehaviour {
 
-	private bool finish = false;
+	/** @file box.cs */ 
+	///\brief
+	/// box: collision detection for the box. 
+	/// @param finish Determines if the box has opened the door yet.
+	/// 
+
+	public bool finish = false;
 
 	// Use this for initialization
 	void Start () {

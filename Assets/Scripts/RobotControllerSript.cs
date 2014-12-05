@@ -1,10 +1,22 @@
 ﻿using UnityEngine;
 using System.Collections;
 
+/** @file RobotControllerScript.cs */ 
+/// \brief
+/// Robot controller sript. Used to Control player and change gravity in scene. Also used to detect collision
+/// on player.
+/// @param grounded Detects if the player is standing on something
+/// @param facingRight Detects which direction the player is standing
+/// @param whatIsGround Allows the developer to dictate what is consider ground for grounded variable.
+/// @param damping Buffer to tell how much to flip character when gravity shifts
+/// @param jumpdir Variable to track gravity orientation
+/// @param dead Tracks if character was killed
+/// 
+
 public class RobotControllerSript : MonoBehaviour {
 
-	public float maxSpeed = 10f;
-	private bool facingRight = true;
+	public float maxSpeed = 10f; 
+	public bool facingRight = true;
 	Animator anim;
 	bool grounded = false;
 	public Transform groundCheck;
@@ -18,9 +30,13 @@ public class RobotControllerSript : MonoBehaviour {
 	private Vector2 crushleft = new Vector2(-1,0);
 	private Vector2 crushright = new Vector2(1,0);
 	public AudioClip crush;
-	private bool dead = false;
+	public bool dead = false;
 	
 	// Use this for initialization
+	/// <summary>
+	/// Start runs code when script is loaded. Finds box colliders, animation states, initializes gravity,
+	/// rotates character according to gravity, and sets jumpdir to gravity orientation.
+	/// </summary>
 	void Start () {
 		Collider[] col = (Collider[])Component.FindObjectsOfType<Collider>();
 		anim = GetComponent<Animator> ();
@@ -30,6 +46,10 @@ public class RobotControllerSript : MonoBehaviour {
 		jumpdir = 1;
 	}
 
+	/// <summary>
+	/// OnGUI: This is the in-game GUI. Creates buttons to allow player to return to main menu, restart level or 
+	/// toggle sound on and off.
+	/// </summary>
 	void OnGUI () {
 		GUI.Box(new Rect(10,10,290,50), "");
 		if(GUI.Button(new Rect(20,25,80,20), "Main Menu")) {
@@ -51,14 +71,13 @@ public class RobotControllerSript : MonoBehaviour {
 	}
 
 	// Update is called once per frame
+	/// <summary>
+	/// Fixed Update moves character and sets animations states according to idling and walking. Also flips character
+	/// </summary>
 	void FixedUpdate () {
 				if (!dead) {
 						grounded = Physics2D.OverlapCircle (groundCheck.position, groundRadius, whatIsGround);
 						anim.SetBool ("Ground", grounded);
-
-						//anim.SetFloat ("Vspeed", rigidbody2D.velocity.y);
-						//anim.SetFloat ("Hspeed", rigidbody2D.velocity.x);
-
 
 						float move = Input.GetAxis ("Horizontal");
 						float movev = Input.GetAxis ("Vertical");
@@ -80,7 +99,9 @@ public class RobotControllerSript : MonoBehaviour {
 
 				}
 		}
-
+	 /// <summary>
+	 /// Update changes gravity according to key presses. In charge of flipping characer according to gravity.
+	 /// </summary>
 	void Update(){
 		if (!dead) {
 						if (Input.GetKeyDown (KeyCode.I)) {
@@ -117,14 +138,18 @@ public class RobotControllerSript : MonoBehaviour {
 						}
 				}
 	}
-
+	 /// <summary>
+	 /// Flip: Changes which direction the character is facing
+	 /// </summary>
 	void Flip(){
 		facingRight = !facingRight;
 		Vector3 theScale = transform.localScale;
 		theScale.x *= -1;
 		transform.localScale = theScale;
 	}
-
+	 /// <summary>
+	 /// OnCollitionEnter2D: detects collisions when a player hits spikes or falls of the map.
+	 /// </summary>
 	void OnCollisionEnter2D(Collision2D hit) {
 		if (hit.gameObject.tag == "Death" || hit.gameObject.tag == "space") {
 			dead = true;
@@ -137,7 +162,10 @@ public class RobotControllerSript : MonoBehaviour {
 			StartCoroutine(waitForDeath());
 		}
 	}
-
+	 /// <summary>
+	 /// OnCollisionStay2D: detects when the player is crushed by a box. Calls coroutine that allows death
+	/// animation to finish befor reloading the level.
+	 /// </summary>
 	void OnCollisionStay2D(Collision2D hit) {
 		if (hit.gameObject.tag == "Finish" && jumpdir == 0 && hit.contacts[0].normal == crushup && grounded == true) {
 			audio.PlayOneShot(crush);

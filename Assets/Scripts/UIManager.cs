@@ -1,6 +1,11 @@
 ﻿using UnityEngine;
 using System.Collections;
 
+/** @file UIManager.cs */ 
+/// \brief
+/// UI Manager: Creates functions to be called when a button is clicked in the main menu.
+/// 
+
 public class UIManager : MonoBehaviour {
 
 	public void StartGame(){

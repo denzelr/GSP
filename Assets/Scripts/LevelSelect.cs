@@ -1,6 +1,11 @@
 ﻿using UnityEngine;
 using System.Collections;
 
+/** @file LevelSelect.cs */ 
+/// \brief
+/// Level select: searches PlayerPrefs for key to unlock levels, if found, it will destroy the lock for the level.
+///
+
 public class LevelSelect : MonoBehaviour {
 	
 	private GameObject lock2;
