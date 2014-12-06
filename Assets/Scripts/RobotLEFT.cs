@@ -1,6 +1,11 @@
 ﻿using UnityEngine;
 using System.Collections;
 
+/** @file RobotLEFT */ 
+/// \brief
+/// RobotLEFT: This is used to start a level with the gravity oriented so the player falls left.
+/// Otherwise, it is the same script as RobotControllerScript.
+
 public class RobotLEFT : MonoBehaviour {
 
 	public float maxSpeed = 10f;

@@ -50,7 +50,6 @@
      <Compile Include="Assets\Scripts\RobotControllerSript.cs" />
      <Compile Include="Assets\Scripts\RobotLEFT.cs" />
      <Compile Include="Assets\Scripts\RobotUP.cs" />
-     <Compile Include="Assets\Scripts\TestScript.cs" />
      <Compile Include="Assets\Scripts\UIManager.cs" />
      <Compile Include="Assets\Scripts\box.cs" />
      <Compile Include="Assets\Scripts\buttonPlay.cs" />

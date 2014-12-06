@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-/** @file LevelSelect.cs */ 
+/** @file LevelSelect */ 
 /// \brief
 /// Level select: searches PlayerPrefs for key to unlock levels, if found, it will destroy the lock for the level.
 ///

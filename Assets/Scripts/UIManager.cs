@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-/** @file UIManager.cs */ 
+/** @file UIManager */ 
 /// \brief
 /// UI Manager: Creates functions to be called when a button is clicked in the main menu.
 /// 

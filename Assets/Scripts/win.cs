@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-/** @file win.cs */ 
+/** @file win */ 
 
 public class win : MonoBehaviour {
 

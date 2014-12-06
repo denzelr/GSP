@@ -3,7 +3,7 @@ using System.Collections;
 
 public class box : MonoBehaviour {
 
-	/** @file box.cs */ 
+	/** @file box */ 
 	///\brief
 	/// box: collision detection for the box. 
 	/// @param finish Determines if the box has opened the door yet.

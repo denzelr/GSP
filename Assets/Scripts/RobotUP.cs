@@ -1,6 +1,11 @@
 ﻿using UnityEngine;
 using System.Collections;
 
+/** @file RobotUP */ 
+/// \brief
+/// RobotUP: This is used to start a level with the gravity inverted so the player falls upwards.
+/// Otherwise, it is the same script as RobotControllerScript.
+
 public class RobotUP : MonoBehaviour {
 	
 	public float maxSpeed = 10f;

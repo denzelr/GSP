@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-/** @file RobotControllerScript.cs */ 
+/** @file RobotControllerScript */ 
 /// \brief
 /// Robot controller sript. Used to Control player and change gravity in scene. Also used to detect collision
 /// on player.

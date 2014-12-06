@@ -3,7 +3,7 @@ using System.Collections;
 
 public class trigger : MonoBehaviour {
 
-	/** @file trigger.cs */ 
+	/** @file trigger */ 
 	/// \brief
 	/// Trigger: Script used on Trigger to open the door at the end of the level. It turns on the switch lights
 	/// and plays audio.
