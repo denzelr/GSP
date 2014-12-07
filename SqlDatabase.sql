@@ -1,0 +1,52 @@
+ DROP TABLE IF EXISTS Variables (1);
+ CREATE TABLE Variables (1) (
+Name                             Character(1), 
+Type                             Character(1), 
+Class                            Character(1), 
+Script                           Character(1));
+insert into Variables (1) values('movingWall','GameObject','Trigger','MonoBehaviour');
+insert into Variables (1) values('success','GameObject','Trigger','MonoBehaviour');
+insert into Variables (1) values('elect1','GameObject','Trigger','MonoBehaviour');
+insert into Variables (1) values('elect2','GameObject','Trigger','MonoBehaviour');
+insert into Variables (1) values('isOpen','bool','Trigger','MonoBehaviour');
+insert into Variables (1) values('Zap','AudioClip','Trigger','MonoBehaviour');
+insert into Variables (1) values('hit','Collision2D','Trigger','MonoBehaviour');
+insert into Variables (1) values('maxSpeed','float','Trigger','MonoBehaviour');
+insert into Variables (1) values('jumpForce','float','RobotControllScript','MonoBehaviour');
+insert into Variables (1) values('damping','float','RobotControllScript','MonoBehaviour');
+insert into Variables (1) values('move','float','RobotControllScript','MonoBehaviour');
+insert into Variables (1) values('moveV','float','RobotControllScript','MonoBehaviour');
+insert into Variables (1) values('facingRight','bool','RobotControllScript','MonoBehaviour');
+insert into Variables (1) values('anim','Animator','RobotControllScript','MonoBehaviour');
+insert into Variables (1) values('grounded','bool','RobotControllScript','MonoBehaviour');
+insert into Variables (1) values('groundCheck','Transform','RobotControllScript','MonoBehaviour');
+insert into Variables (1) values('whatIsGround','LayerMask','RobotControllScript','MonoBehaviour');
+insert into Variables (1) values('jumpdir','int','RobotControllScript','MonoBehaviour');
+insert into Variables (1) values('crushup','Vector2','RobotControllScript','MonoBehaviour');
+insert into Variables (1) values('crushdown','Vector2','RobotControllScript','MonoBehaviour');
+insert into Variables (1) values('crushleft','Vector2','RobotControllScript','MonoBehaviour');
+insert into Variables (1) values('crushright','Vector2','RobotControllScript','MonoBehaviour');
+insert into Variables (1) values('crush','AudioClip','RobotControllScript','MonoBehaviour');
+insert into Variables (1) values('dead','bool','RobotControllScript','MonoBehaviour');
+insert into Variables (1) values('gravity','Physics2D','RobotControllScript','MonoBehaviour');
+insert into Variables (1) values('targetdown','Vector3','RobotControllScript','MonoBehaviour');
+insert into Variables (1) values('LoadLevel','Application','RobotControllScript','MonoBehaviour');
+insert into Variables (1) values('up','Transform','RobotControllScript','MonoBehaviour');
+insert into Variables (1) values('lock','GameObject','LevelSelect','MonoBehaviour');
+insert into Variables (1) values('unlock','int','LevelSelect','MonoBehaviour');
+insert into Variables (1) values('float','gravity','GravityShift','MonoBehaviour');
+insert into Variables (1) values('gravity','Physics2D','GravityShift','MonoBehaviour');
+insert into Variables (1) values('coll','Collision2d','Collision','MonoBehaviour');
+insert into Variables (1) values('Play','GameObject','ButtonPlay','MonoBehaviour');
+insert into Variables (1) values('Levels','GameObject','ButtonPlay','MonoBehaviour');
+insert into Variables (1) values('Credits','GameObject','ButtonPlay','MonoBehaviour');
+insert into Variables (1) values('name','GameObject','ButtonPlay','MonoBehaviour');
+insert into Variables (1) values('finish','bool','Box','MonoBehaviour');
+insert into Variables (1) values('hit','Collision2D','Box','MonoBehaviour');
+insert into Variables (1) values('LoadLevel','Application','Box','MonoBehaviour');
+insert into Variables (1) values('hit','Collision2D','Win','MonoBehaviour');
+insert into Variables (1) values('LoadLevel','Application','Win','MonoBehaviour');
+insert into Variables (1) values('SetString','PlayerPrefs','Win','MonoBehaviour');
+insert into Variables (1) values('LoadLevel','Application','UIManager','MonoBehaviour');
+insert into Variables (1) values('volume','AudioListener','UIManager','MonoBehaviour');
+insert into Variables (1) values('DeleteAll','PlayerPrefs','UIManager','MonoBehaviour');
