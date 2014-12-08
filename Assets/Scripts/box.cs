@@ -9,16 +9,20 @@ public class box : MonoBehaviour {
 	/// @param finish Determines if the box has opened the door yet.
 	/// 
 
+	public ParticleSystem ps = null;
 	public bool finish = false;
 
 	// Use this for initialization
 	void Start () {
-	
+
 	}
 	
 	// Update is called once per frame
 	void Update () {
-	
+		ParticleSystem.Particle[] particles = new ParticleSystem.Particle[1000];
+		int particleCount = ps.GetParticles(particles);
+		particleSystem.renderer.sortingLayerName = "Player";
+
 	}
 
 	void OnCollisionEnter2D(Collision2D hit) {
