@@ -4,11 +4,11 @@ Gravity Shift
 CSCI 3308
 
 Authors: Ryan Denzel
-		 Kyle Rooney
+	 Kyle Rooney
 
 Folders: Documents: Includes test cases, database, documentation
 		 Gravity: Unity project
-		 Gravity Shift Game: Standalone build of game, includes mac and 						windows format.
+		 Gravity Shift Game: Standalone build of game, includes mac and windows format.
 
 Github Repository: https://github.com/denzelr/GSP
 Trello: Sprint Backlog: https://trello.com/b/ze1xZVsz/sprint-backlog
@@ -29,9 +29,9 @@ Gravity Shift was built on Unity Version 4.6.0b17. Link to download Unity is
 	Scripts in Unity will open with MonoDevelop, and all require the UnityEngine library to run.
 
 TestScript: Located in Documents
-			Create an empty gameobject in Unity and attach TestScript to the 	object by dragging and dropping.
-			The TestScript will run when the game is running in Unity.
-			All output from the TestScript will run in the Unity Log.
+	Create an empty gameobject in Unity and attach TestScript to the object by dragging and dropping.
+	The TestScript will run when the game is running in Unity.
+	All output from the TestScript will run in the Unity Log.
 
 Documents:
 	AutoDoc.pdf: Doxygen autodoc pdf
@@ -39,5 +39,6 @@ Documents:
 	GSPTEST.pdf: Test cases
 	TestScript.cs: Script that was used to perform tests
 	SQLDatabase: SQL file of project hierarchy
+	ERDiagram: ER Diagram
 
 
